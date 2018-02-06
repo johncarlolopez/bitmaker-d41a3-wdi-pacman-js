@@ -64,9 +64,9 @@ function displayMenu() {
   for (var i = 0; i < ghosts.length; i++) {
     var eatOption = '(' + (i + 1) + ') Eat ' + ghosts[i].name;
     if (ghosts[i].edible) {
-      eatOption += ' (edible)'
+      eatOption += ' (edible)';
     } else {
-      eatOption += ' (inedible)'
+      eatOption += ' (inedible)';
     }
     console.log(eatOption);
   }

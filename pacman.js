@@ -62,7 +62,13 @@ function displayMenu() {
     console.log('(p) Eat Power-Pellet');
   }
   for (var i = 0; i < ghosts.length; i++) {
-    console.log('(' + (i + 1) + ') Eat ' + ghosts[i].name);
+    var eatOption = '(' + (i + 1) + ') Eat ' + ghosts[i].name;
+    if (ghosts[i].edible) {
+      eatOption += ' (edible)'
+    } else {
+      eatOption += ' (inedible)'
+    }
+    console.log(eatOption);
   }
   console.log('(q) Quit');
 }
@@ -81,7 +87,9 @@ function eatDot() {
 
 function eatGhost(ghost) {
   if (ghost.edible) {
-
+    console.log('\nChomp!');
+    score += 200;
+    ghost.edible = false;
   } else {
     lives -= 1;
     console.log('\n' + ghost.name + ' the ' + ghost.colour + ' ghost killed Pac-Man.');
